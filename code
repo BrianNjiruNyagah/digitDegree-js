@@ -1,0 +1,23 @@
+function digitDegree(n) {
+    let check = 0;
+    let count = 0;
+    
+    //add the single compartments of n till only one digit is represented
+    function increase(n){
+        let arr = n.toString()
+                    .split('');
+        let add = arr.reduce(
+            ( accumulator, currentValue ) => +accumulator + + currentValue);
+        return add;
+        
+    }
+    
+    //loop add the compartments of n till only a one digit is obtained from the addition
+    while(n%10 != n){
+        check = increase(n);
+        n = check;
+        count++;
+    }
+    
+    return count;
+}
